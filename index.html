@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panoramic tour</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="./scripts/hotspot.js"></script>
+    <script src="./scripts/menus.js"></script>
+</head>
+<body>
+    <!-- Sidebar Menu -->
+    <div id="sidebar">
+        <ul>
+            <li class="room" data-src="./Images/Rooms/LivingRoom.jpg">Living Room</li>
+            <li class="room" data-src="./Images/Rooms/Bedroom.jpg">Bedroom</li>
+            <!-- Add more rooms as needed -->
+        </ul>
+    </div>
+
+    <!-- Toggle Button -->
+    <div id="toggle-buttons">
+        <button id="toggleSidebar">Rooms</button>
+        <button id="toggleFloorPlan">Floor Plan</button>
+    </div>
+    
+    <!-- Floor Plan Container -->
+    <div id="floor-plan-container" >
+        <img src="./Images/Other/floorPlan.png" alt="Floor Plan">
+        <!-- Overlay divs for clickable areas -->
+        <div class="clickable-area" data-src="./Images/Rooms/Bedroom.jpg" style="top: 50px; left: 340px; width: 140px; height: 130px;"></div>
+        <div class="clickable-area" data-src="./Images/Rooms/LivingRoom.jpg" style="top: 240px; left: 200px; width: 150px; height: 120px; "></div>
+        <!-- Add more areas as needed -->
+    </div>
+
+    <!-- A-Frame Scene -->
+    <a-scene cursor="rayOrigin: mouse">
+        <a-entity id="rig">
+            <a-entity camera position="0 2 0" look-controls>
+                <a-cursor id="cursor" raycaster="objects: .clickable" fuse="true" fuse-timeout="3000"></a-cursor>
+            </a-entity>
+        </a-entity>
+        <a-sky id="sky" src="./Images/Rooms/LivingRoom.jpg"></a-sky>
+
+        <!-- Hotspot entity -->
+        <a-plane 
+            position="2.19379 0 2.36519" 
+            material="src: ./Images/Other/hotspot.png; blending: additive; transparent: true; opacity: 0.7" 
+            rotation="-90 0 0" scale="0.53581 0.53581 0.53581"
+            navigate class="clickable">
+        </a-plane>
+    </a-scene>
+</body>
+</html>

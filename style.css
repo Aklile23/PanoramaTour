@@ -1,0 +1,99 @@
+/* Custom styles go here */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    position: relative;
+}
+
+a-scene {
+    width: 100vw;
+    height: 100vh;
+    flex-grow: 1;
+}
+
+/* Styles for clickable hotspots */
+.clickable {
+    cursor: pointer;
+}
+
+/* Sidebar styles */
+#sidebar {
+    width: 200px;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    top: 10;
+    bottom: 0;
+    height: 50%; /* Adjust as necessary */
+    left: -400px; /* Hide the sidebar offscreen to the left */
+    z-index: 100;
+    transition: left 0.3s ease; /* Transition effect */
+}
+
+#sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #555;
+}
+
+#sidebar ul li:hover {
+    background-color: #555;
+}
+
+/* Toggle Buttons container */
+#toggle-buttons {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 101;
+}
+
+/* Toggle Button styles */
+#toggleSidebar, #toggleFloorPlan {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#toggleSidebar:hover, #toggleFloorPlan:hover {
+    background-color: #555;
+}
+
+/* Floor Plan Container */
+#floor-plan-container {
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 0.5%;
+    left: -600px; /* Initially hidden offscreen to the left */
+    width: 100%;
+    max-width: 600px;
+    transition: left 0.3s ease; /* Transition effect */
+    z-index: 100;
+}
+
+#floor-plan-container img {
+    width: 100%;
+    height: auto;
+}
+
+/* Clickable areas for floor plan */
+.clickable-area {
+    position: absolute;
+    cursor: pointer;
+    border: 2px solid #000; /* Optional: to see the borders clearly */
+}
+
+/* Hide element */
+.hidden {
+    display: none;
+}
